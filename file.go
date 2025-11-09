@@ -1,4 +1,4 @@
-package logger
+package logr
 
 import (
 	"encoding/json"
@@ -12,18 +12,18 @@ import (
 )
 
 var (
-	LoggerFile *os.File
-	LoggerFilePath string
+	LoggerFile      *os.File
+	LoggerFilePath  string
 	LoggerFileMutex sync.Mutex
 )
 
 type LogLine struct {
-	Time   time.Time   `json:"time"`
-	TID    int         `json:"tid,omitempty"`
-	Level  LogLevel    `json:"level"`
-	Color  string      `json:"color,omitempty"` // e.g., "Green"
-	Format string      `json:"format"`          // original format string
-	Args   []any       `json:"args"`            // sanitized args (no ANSI)
+	Time   time.Time `json:"time"`
+	TID    int       `json:"tid,omitempty"`
+	Level  LogLevel  `json:"level"`
+	Color  string    `json:"color,omitempty"` // e.g., "Green"
+	Format string    `json:"format"`          // original format string
+	Args   []any     `json:"args"`            // sanitized args (no ANSI)
 }
 
 /*
@@ -31,7 +31,7 @@ This will initiate json logging file with name like Cfg.LogFileFormat and conten
 {"t": timestamp, "tid": yourthreadid, "l": loglevel, "msg": "log message with \033[0;32mcolor\033[0m"}
 {"t": timestamp, "tid": yourthreadid, "l": loglevel, "msg": "another log message with \033[0;32mcolor\033[0m"}
 
-This function is only called if an option to save to logger file is specified when initializing logger.
+This function is only called if an option to save to logger file is specified when initializing logr.
 
 This function will change Cfg.LoggerFilePath and Cfg.LoggerFile
 */

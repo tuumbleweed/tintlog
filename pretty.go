@@ -1,4 +1,4 @@
-package logger
+package logr
 
 import (
 	"encoding/hex"
@@ -45,7 +45,9 @@ func PrettyForStderr(a any) string {
 		return fmt.Sprintf("<%d bytes: %s%s>",
 			n, strings.ToUpper(hex.EncodeToString(preview)),
 			func() string {
-				if n > maxHexPreview { return "…" }
+				if n > maxHexPreview {
+					return "…"
+				}
 				return ""
 			}(),
 		)
