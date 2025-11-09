@@ -1,4 +1,4 @@
-package logger
+package logr
 
 import "github.com/meeeraaakiii/go-tintlog/color"
 
