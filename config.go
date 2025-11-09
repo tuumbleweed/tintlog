@@ -1,6 +1,6 @@
 package logger
 
-import "logger/color"
+import "github.com/meeeraaakiii/go-tintlog/color"
 
 // user config set through a config file (logger section)
 type Config struct {

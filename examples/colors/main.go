@@ -1,8 +1,8 @@
 package main
 
 import (
-	"logger"
-	"logger/color"
+	"github.com/meeeraaakiii/go-tintlog"
+	"github.com/meeeraaakiii/go-tintlog/color"
 )
 
 func main() {

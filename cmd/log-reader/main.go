@@ -8,13 +8,13 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"logger/color"
+	"github.com/meeeraaakiii/go-tintlog/color"
 	"os"
 	"strconv"
 	"strings"
 	"time"
 
-	"logger"
+	"github.com/meeeraaakiii/go-tintlog"
 )
 
 func main() {

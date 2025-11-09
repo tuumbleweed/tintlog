@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	"logger/color"
+	"github.com/meeeraaakiii/go-tintlog/color"
 )
 
 var (

@@ -3,11 +3,12 @@ package logger
 import (
 	"encoding/json"
 	"fmt"
-	"logger/color"
 	"os"
 	"path/filepath"
 	"sync"
 	"time"
+
+	"github.com/meeeraaakiii/go-tintlog/color"
 )
 
 var (
