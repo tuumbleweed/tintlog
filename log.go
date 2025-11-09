@@ -8,6 +8,7 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+	"time"
 )
 
 var (
@@ -15,21 +16,17 @@ var (
 	LoggerOutputMutex sync.Mutex
 )
 
-// Colorizer is assumed to be your existing type, e.g.:
-// type Colorizer func(s string) string
-
-// LogAt prints with an explicit log level and optional goroutine TID (if enabled in Cfg.UseTid).
-// It respects Cfg.LogLevel (only prints when Cfg.LogLevel >= level).
-// It colorizes:
-//   • the [Level] (and [tid] if present) using the provided colorize
-//   • string-ish args (string, error, fmt.Stringer) inside the message body
+// Log prints time (if TimeFormat != ""), [Level], optional [tid], then the message.
+// It respects Cfg.LogLevel and colorizes:
+//   • [Level] and [tid] with the provided colorize
+//   • string-ish args inside the body
+//   • timestamp with Cfg.LogTimeColor (if non-nil)
 func Log(level LogLevel, colorize Colorizer, format string, args ...any) {
-	// respect log level threshold; file duplication stays out of scope for now
 	if Cfg.LogLevel < level {
 		return
 	}
 
-	// colorize arguments only (strings, errors, fmt.Stringer)
+	// colorize string-ish args
 	if colorize != nil {
 		for i, a := range args {
 			switch v := a.(type) {
@@ -39,8 +36,6 @@ func Log(level LogLevel, colorize Colorizer, format string, args ...any) {
 				args[i] = colorize(v.Error())
 			case fmt.Stringer:
 				args[i] = colorize(v.String())
-			default:
-				// leave non-strings untouched
 			}
 		}
 	}
@@ -50,7 +45,17 @@ func Log(level LogLevel, colorize Colorizer, format string, args ...any) {
 		body += "\n"
 	}
 
-	// build prefix: [Level] or [Level][tid]
+	// timestamp (only if TimeFormat is non-empty)
+	ts := ""
+	if strings.TrimSpace(Cfg.TimeFormat) != "" {
+		raw := time.Now().Format(Cfg.TimeFormat)
+		if Cfg.LogTimeColor != nil {
+			raw = Cfg.LogTimeColor(raw)
+		}
+		ts = raw + " "
+	}
+
+	// [Level] (and [tid] if enabled)
 	levelStr := level.String()
 	if colorize != nil {
 		levelStr = colorize(levelStr)
@@ -58,7 +63,7 @@ func Log(level LogLevel, colorize Colorizer, format string, args ...any) {
 	prefix := "[" + levelStr + "] "
 
 	if Cfg.UseTid != nil && *Cfg.UseTid {
-		tid := getTid() // you already have this in your old codebase
+		tid := getTid()
 		tidStr := strconv.Itoa(tid)
 		if colorize != nil {
 			tidStr = colorize(tidStr)
@@ -67,7 +72,6 @@ func Log(level LogLevel, colorize Colorizer, format string, args ...any) {
 	}
 
 	LoggerOutputMutex.Lock()
-	_, _ = io.WriteString(LoggerOutput, prefix+body)
+	_, _ = io.WriteString(LoggerOutput, ts+prefix+body)
 	LoggerOutputMutex.Unlock()
 }
-

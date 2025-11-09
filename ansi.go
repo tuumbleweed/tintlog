@@ -58,6 +58,9 @@ var (
 
 	SoftYellowBG = RGB{0xFF, 0xF8, 0xE1}
 	SoftGreenBG  = RGB{0xEC, 0xFD, 0xF5}
+
+	// A soft “dim white / gray” that reads like ANSI dim white.
+	DimGray = RGB{120, 120, 120}
 )
 
 // Colorizer post-processes a fully formatted message (handles multiline safely).
@@ -71,5 +74,6 @@ var (
 	BlueText     Colorizer = func(s string) string { return FgLines(s, Blue) }
 	OnSoftYellow Colorizer = func(s string) string { return FgBgLines(s, RGB{0x43, 0x62, 0x12}, SoftYellowBG) }
 	OnSoftGreen  Colorizer = func(s string) string { return FgBgLines(s, RGB{0x16, 0x65, 0x34}, SoftGreenBG) }
+	DimText      Colorizer = func(s string) string { return FgLines(s, DimGray) } // great for timestamps
 	NoColor      Colorizer = nil
 )

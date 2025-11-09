@@ -22,6 +22,9 @@ type Config struct {
 	TimeFormat string `json:"time_format,omitempty"`
 	// log file format
 	LogFileFormat string `json:"log_file_format,omitempty"`
+
+	// colorizer for the timestamp. Not JSON-serializable; runtime-only.
+	LogTimeColor Colorizer `json:"-"`
 }
 
 var Cfg Config = defaultConfig() // this one we use to access config values from anywhere
@@ -35,6 +38,7 @@ func defaultConfig() Config {
 		UseTid:             &useTid,
 		TimeFormat:         "2006/Jan/02 15:04:05",
 		LogFileFormat:      "02_Jan_2006_15_04_05.jsonl",
+		LogTimeColor:       DimText, // soft “dim white/gray”
 	}
 }
 
