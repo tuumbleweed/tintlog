@@ -38,7 +38,7 @@ func defaultConfig() Config {
 		UseTid:             &useTid,
 		TimeFormat:         "2006/Jan/02 15:04:05",
 		LogFileFormat:      "02_Jan_2006_15_04_05.jsonl",
-		LogTimeColor:       DimText, // soft “dim white/gray”
+		LogTimeColor:       DimGrayText, // soft “dim white/gray”
 	}
 }
 
