@@ -52,7 +52,6 @@ func OpenLoggerFile(logDir string) (err error, errMsg string) {
 	return nil, ""
 }
 
-
 // Cfg.LoggerFilePath == "" at the point of logger initialization, so
 // it will just print without saving to log file
 func CreateDirIfDoesntExist(path string) (err error, errMsg string) {
@@ -77,7 +76,6 @@ func CreateDirIfDoesntExist(path string) (err error, errMsg string) {
 
 	return nil, ""
 }
-
 
 func writeLogJSONL(line LogLine) {
 	if LoggerFilePath == "" {

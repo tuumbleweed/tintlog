@@ -6,7 +6,6 @@ import (
 	"strings"
 )
 
-
 func sanitizeArg(a any) any {
 	switch v := a.(type) {
 	case error:
