@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/meeeraaakiii/tintlog/palette"
+	"github.com/tuumbleweed/tintlog/palette"
 )
 
 var (

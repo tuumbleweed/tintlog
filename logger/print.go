@@ -4,7 +4,7 @@ package tl
 import (
 	"strings"
 
-	"github.com/meeeraaakiii/tintlog/palette"
+	"github.com/tuumbleweed/tintlog/palette"
 )
 
 // LogJSON prints a labeled JSON block using the standard format.
