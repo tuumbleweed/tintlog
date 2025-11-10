@@ -13,8 +13,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/meeeraaakiii/go-tintlog/color"
-	"github.com/meeeraaakiii/go-tintlog/logger"
+	tl "github.com/meeeraaakiii/go-tintlog/logger"
+	"github.com/meeeraaakiii/go-tintlog/palette"
 )
 
 func main() {
@@ -139,7 +139,7 @@ func pickColorizer(name string) palette.Colorizer {
 
 func printLogLine(logLine tl.LogLine) {
 	// choose colors
-	timeColorizer := tl.Cfg.LogTimeColor           // e.g. "Gray" or "#8899aa"
+	timeColorizer := tl.Cfg.LogTimeColor             // e.g. "Gray" or "#8899aa"
 	logLineColorizer := pickColorizer(logLine.Color) // e.g. "Green", "RedBoldBackground"
 
 	// build fields

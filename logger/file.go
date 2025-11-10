@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/meeeraaakiii/go-tintlog/color"
+	"github.com/meeeraaakiii/go-tintlog/palette"
 )
 
 var (
