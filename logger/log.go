@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/meeeraaakiii/go-tintlog/palette"
+	"github.com/meeeraaakiii/tintlog/palette"
 )
 
 var (

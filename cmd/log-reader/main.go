@@ -13,8 +13,8 @@ import (
 	"strings"
 	"time"
 
-	tl "github.com/meeeraaakiii/go-tintlog/logger"
-	"github.com/meeeraaakiii/go-tintlog/palette"
+	tl "github.com/meeeraaakiii/tintlog/logger"
+	"github.com/meeeraaakiii/tintlog/palette"
 )
 
 func main() {

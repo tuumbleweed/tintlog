@@ -3,7 +3,7 @@ package tl
 import (
 	"os"
 
-	"github.com/meeeraaakiii/go-tintlog/palette"
+	"github.com/meeeraaakiii/tintlog/palette"
 )
 
 // user config set through a config file (logger section)

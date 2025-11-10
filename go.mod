@@ -1,3 +1,3 @@
-module github.com/meeeraaakiii/go-tintlog
+module github.com/meeeraaakiii/tintlog
 
 go 1.25.3

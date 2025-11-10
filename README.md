@@ -1,4 +1,4 @@
-# go-tintlog
+# tintlog
 
 A tiny, zero-dependency logging helper for Go that prints **clean, readable, color-tinted**
 messages to terminals while keeping **file output uncolored** for machines and post-processing.
