@@ -1,9 +1,9 @@
-package color
+package palette
 
 // Base hues (moderate contrast, soothing)
 const (
-	WhiteColor  = "#ffffff"
-	BlackColor  = "#000000"
+	WhiteColor = "#ffffff"
+	BlackColor = "#000000"
 
 	RedColor    = "#d84f4f"
 	OrangeColor = "#e07f2f"

@@ -47,7 +47,7 @@ func main() {
 	// Read file with combined logic
 	err, errMsg := readLogFile(*logFile, tl.LogLevel(*logLevel), startTime, endTime, *tail)
 	if err != nil {
-		tl.Log(tl.Info, color.Red, "Err: '%s', errMsg: '%s'", err, errMsg)
+		tl.Log(tl.Info, palette.Red, "Err: '%s', errMsg: '%s'", err, errMsg)
 	}
 }
 
@@ -130,11 +130,11 @@ func BeforeOrEqual(t, u time.Time) bool {
 }
 
 // pick a colorizer by name, fallback to NoColor
-func pickColorizer(name string) color.Colorizer {
-	if c, ok := color.Colorizers[name]; ok && c.Fn != nil {
+func pickColorizer(name string) palette.Colorizer {
+	if c, ok := palette.Colorizers[name]; ok && c.Fn != nil {
 		return c
 	}
-	return color.Colorizers["NoColor"]
+	return palette.Colorizers["NoColor"]
 }
 
 func printLogLine(logLine tl.LogLine) {

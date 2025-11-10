@@ -1,4 +1,4 @@
-package color
+package palette
 
 import (
 	"fmt"
@@ -137,24 +137,24 @@ var Colorizers = map[string]Colorizer{
 	"DimGrayBold":   FgColorizer("DimGrayBold", DimGrayColor, true),
 
 	// --- Background variants (Base hues; black fg on color bg) ---
-	"RedBackground":     FgBgColorizer("RedBackground", BlackColor, RedColor, false),
-	"OrangeBackground":  FgBgColorizer("OrangeBackground", BlackColor, OrangeColor, false),
-	"YellowBackground":  FgBgColorizer("YellowBackground", BlackColor, YellowColor, false),
-	"GreenBackground":   FgBgColorizer("GreenBackground", BlackColor, GreenColor, false),
-	"CyanBackground":    FgBgColorizer("CyanBackground", BlackColor, CyanColor, false),
-	"BlueBackground":    FgBgColorizer("BlueBackground", BlackColor, BlueColor, false),
-	"PurpleBackground":  FgBgColorizer("PurpleBackground", BlackColor, PurpleColor, false),
-	"GrayBackground":    FgBgColorizer("GrayBackground", BlackColor, GrayColor, false),
+	"RedBackground":    FgBgColorizer("RedBackground", BlackColor, RedColor, false),
+	"OrangeBackground": FgBgColorizer("OrangeBackground", BlackColor, OrangeColor, false),
+	"YellowBackground": FgBgColorizer("YellowBackground", BlackColor, YellowColor, false),
+	"GreenBackground":  FgBgColorizer("GreenBackground", BlackColor, GreenColor, false),
+	"CyanBackground":   FgBgColorizer("CyanBackground", BlackColor, CyanColor, false),
+	"BlueBackground":   FgBgColorizer("BlueBackground", BlackColor, BlueColor, false),
+	"PurpleBackground": FgBgColorizer("PurpleBackground", BlackColor, PurpleColor, false),
+	"GrayBackground":   FgBgColorizer("GrayBackground", BlackColor, GrayColor, false),
 
 	// --- Bold background variants (Base hues; black fg on color bg) ---
-	"RedBoldBackground":     FgBgColorizer("RedBoldBackground", BlackColor, RedColor, true),
-	"OrangeBoldBackground":  FgBgColorizer("OrangeBoldBackground", BlackColor, OrangeColor, true),
-	"YellowBoldBackground":  FgBgColorizer("YellowBoldBackground", BlackColor, YellowColor, true),
-	"GreenBoldBackground":   FgBgColorizer("GreenBoldBackground", BlackColor, GreenColor, true),
-	"CyanBoldBackground":    FgBgColorizer("CyanBoldBackground", BlackColor, CyanColor, true),
-	"BlueBoldBackground":    FgBgColorizer("BlueBoldBackground", BlackColor, BlueColor, true),
-	"PurpleBoldBackground":  FgBgColorizer("PurpleBoldBackground", BlackColor, PurpleColor, true),
-	"GrayBoldBackground":    FgBgColorizer("GrayBoldBackground", BlackColor, GrayColor, true),
+	"RedBoldBackground":    FgBgColorizer("RedBoldBackground", BlackColor, RedColor, true),
+	"OrangeBoldBackground": FgBgColorizer("OrangeBoldBackground", BlackColor, OrangeColor, true),
+	"YellowBoldBackground": FgBgColorizer("YellowBoldBackground", BlackColor, YellowColor, true),
+	"GreenBoldBackground":  FgBgColorizer("GreenBoldBackground", BlackColor, GreenColor, true),
+	"CyanBoldBackground":   FgBgColorizer("CyanBoldBackground", BlackColor, CyanColor, true),
+	"BlueBoldBackground":   FgBgColorizer("BlueBoldBackground", BlackColor, BlueColor, true),
+	"PurpleBoldBackground": FgBgColorizer("PurpleBoldBackground", BlackColor, PurpleColor, true),
+	"GrayBoldBackground":   FgBgColorizer("GrayBoldBackground", BlackColor, GrayColor, true),
 }
 
 /* --------------- convenience aliases (import-friendly) ----------------- */

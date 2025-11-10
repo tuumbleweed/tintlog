@@ -30,7 +30,7 @@ type Config struct {
 	LogFileFormat string `json:"log_file_format,omitempty"`
 
 	// colorizer for the timestamp. Not JSON-serializable; runtime-only.
-	LogTimeColor color.Colorizer `json:"-"`
+	LogTimeColor palette.Colorizer `json:"-"`
 }
 
 var Cfg Config = defaultConfig() // this one we use to access config values from anywhere
@@ -44,22 +44,22 @@ func defaultConfig() Config {
 		UseTid:             &useTid,
 		TimeFormat:         "2006/Jan/02 15:04:05",
 		LogFileFormat:      "02_Jan_2006_15_04_05.jsonl",
-		LogTimeColor:       color.DimGray, // soft “dim white/gray”
+		LogTimeColor:       palette.DimGray, // soft “dim white/gray”
 	}
 }
 
 func InitializeConfig(userConfig *Config) {
 	// If not provided - just use defaultConfig
 	if userConfig == nil {
-		Log(Notice, color.PurpleBold, "%s config is %s, keeping %s", "logger", "not provided", "default logger config")
+		Log(Notice, palette.PurpleBold, "%s config is %s, keeping %s", "logger", "not provided", "default logger config")
 		return
 	}
-	Log(Notice, color.GreenBold, "%s config was %s, using %s", "logger", "provided", "user config")
+	Log(Notice, palette.GreenBold, "%s config was %s, using %s", "logger", "provided", "user config")
 
 	// apply defaults for every missing value
 	ApplyDefaults(userConfig, Cfg, func(field string, defVal any) {
 		Log(
-			Info, color.Purple,
+			Info, palette.Purple,
 			"%s field is %s in %s configuration. Using default value: %v",
 			field, "missing", "logger", PrettyForStderr(defVal),
 		)
@@ -67,13 +67,13 @@ func InitializeConfig(userConfig *Config) {
 
 	// use user config after applying defaults
 	Cfg = *userConfig
-	Log(Info, color.DimGreen, "%s: %s", "Effective config", Cfg)
+	Log(Info, palette.DimGreen, "%s: %s", "Effective config", Cfg)
 
 	if Cfg.LogDir != "" {
 		// this function will change Cfg.LoggerFilePath and Cfg.LoggerFile
 		err, errMsg := OpenLoggerFile(Cfg.LogDir)
 		if err != nil {
-			Log(Info, color.Red, "Err: '%s', errMsg: '%s'", err, errMsg)
+			Log(Info, palette.Red, "Err: '%s', errMsg: '%s'", err, errMsg)
 			os.Exit(1)
 		}
 	}
