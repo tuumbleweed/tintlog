@@ -1,0 +1,37 @@
+schema_version: 1
+id: tintlog
+name: tintlog
+original_name: tintlog
+short_description: A zero-dependency Go logging library with colored terminal output, optional JSONL storage, and a command-line reader for filtering saved records by level and time.
+repository:
+  local_name: tintlog
+  url: https://github.com/tuumbleweed/tintlog
+  relationship: standalone
+  parent_project: null
+project:
+  type: unknown
+  status: completed
+  categories: [tooling]
+  start_date: null
+  end_date: null
+  date_precision: unknown
+  git_first_activity: "2025-11-09"
+  git_last_activity: "2026-01-14"
+technologies:
+  languages: [Go]
+  frameworks: []
+  databases: []
+  messaging: []
+  infrastructure: []
+  tools: [Go modules, Git, Docker, Docker Compose]
+links:
+  repository: https://github.com/tuumbleweed/tintlog
+  demo: null
+publication:
+  visibility: review_required
+  featured: false
+  show_criticism: false
+  review_status: unverified
+analysis:
+  analyzed_commit: a18f211694a6931ccedeeb361a41bcd6c4896c24
+  analyzed_at: "2026-10-15"
